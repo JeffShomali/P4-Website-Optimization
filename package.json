@@ -1,0 +1,29 @@
+{
+  "name": "gruntoptimization",
+  "version": "1.0.0",
+  "description": "This is for website optimization practice with grunt ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JeffShomali/P4-Website-Optimization.git"
+  },
+  "author": "Jeff Shomali",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JeffShomali/P4-Website-Optimization/issues"
+  },
+  "homepage": "https://github.com/JeffShomali/P4-Website-Optimization#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-cssmin": "^1.0.1",
+    "grunt-contrib-htmlmin": "^1.5.0",
+    "grunt-contrib-imagemin": "^1.0.1",
+    "grunt-contrib-uglify": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "jpegtran-bin": "0.2.0"
+  }
+}
