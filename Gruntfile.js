@@ -20,19 +20,6 @@ module.exports = function(grunt) {
         },
 
 
-        // Concat Configuration
-        //    concat: {
-        //        JS: {
-        //            src: ['js/perfmatters.js', 'views/js/main.js'],
-        //            dest: 'dist/js/built.js',
-        //        },
-        //
-        //        CSS: {
-        //            src: ['css/style.css', 'css/print.css'],
-        //            dest: 'dist/css/built.css',
-        //        },
-        //    },
-
         // Minification configuration
         cssmin: {
             target: {
@@ -46,49 +33,52 @@ module.exports = function(grunt) {
             }
         },
 
-        // Image minimize configuration
-        imagemin: {
-            static: {
-                files: {
-                    'dist/views/images/pizza.png'   : 'views/images/pizza.png',    // 'destination': 'source'
-                    'dist/views/images/pizzeria.jpg': 'views/images/pizzeria.jpg', // 'destination': 'source'
-                }
-            },
-
-            dynamic: {
-                files: [{
-                    expand: true,
-                    cwd: 'img/',
-                    src: ['**/*.{png,jpg,gif}'],
-                    dest: 'dist/'
-                }]
-            }
-        },
-
+        //Image minimize configuration
+     //       imagemin: { // Task
+     //           static: { // Target
+     //               options: { // Target options
+     //                   optimizationLevel: 3,
+     //                   svgoPlugins: [{
+     //                       removeViewBox: false
+     //                   }],
+     //                   use: [mozjpeg()]
+     //               },
+     //               files: { // Dictionary of files
+     //                   'dist/pizzeria.jpg': 'views/images/pizzeria.jpg',
+     //
+     //               }
+     //           },
+     //      dynamic: { // Another target
+     //          files: [{
+     //              expand: true, // Enable dynamic expansion
+     //              cwd: 'src/', // Src matches are relative to this path
+     //              src: ['**/*.{png,jpg,gif}'], // Actual patterns to match
+     //              dest: 'dist/' // Destination path prefix
+     //          }]
+     //      }
+     // },
 
         // Uglify configuration
         uglify: {
             my_target: {
                 files: {
                     'dist/js/perfmatters.js': ['js/perfmatters.js'],
-                    'dist/views/js/main.js' : ['views/js/main.js'],
+                    'dist/views/js/main.js': ['views/js/main.js'],
                 }
             }
         },
 
 
-        // Watch configuration
-        //    watch: {
-        //        JS: {
-        //            files: ['**/*.js'],
-        //            tasks: ['concat'],
-        //        },
-        //        CSS: {
-        //            files: ['**/*.css'],
-        //            tasks: ['concat'],
-        //        },
-        //    },
-
+        // Inline Configuration
+        inline: {
+            dist: {
+                options: {
+                    cssmin: true
+                },
+                src: 'index.html',
+                dest: 'dist/index.html'
+            }
+        }
 
     }); //end config
 
@@ -99,5 +89,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.registerTask('default', ['concat', 'cssmin', 'imagemin', 'uglify', 'htmlmin']);
+    grunt.loadNpmTasks('grunt-inline');
+    grunt.registerTask('default', ['cssmin', 'imagemin', 'uglify', 'htmlmin', 'inline']);
 };
