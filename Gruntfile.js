@@ -1,7 +1,6 @@
 module.exports = function(grunt) {
     grunt.initConfig({
 
-
         // Inline Configuration
         inlinecss: {
             main: {
@@ -33,9 +32,6 @@ module.exports = function(grunt) {
             }
         },
 
-
-
-
         // Minification configuration
         cssmin: {
             target: {
@@ -50,29 +46,29 @@ module.exports = function(grunt) {
         },
 
         //Image minimize configuration
-        //       imagemin: { // Task
-        //           static: { // Target
-        //               options: { // Target options
-        //                   optimizationLevel: 3,
-        //                   svgoPlugins: [{
-        //                       removeViewBox: false
-        //                   }],
-        //                   use: [mozjpeg()]
-        //               },
-        //               files: { // Dictionary of files
-        //                   'dist/pizzeria.jpg': 'views/images/pizzeria.jpg',
-        //
-        //               }
-        //           },
-        //      dynamic: { // Another target
-        //          files: [{
-        //              expand: true, // Enable dynamic expansion
-        //              cwd: 'src/', // Src matches are relative to this path
-        //              src: ['**/*.{png,jpg,gif}'], // Actual patterns to match
-        //              dest: 'dist/' // Destination path prefix
-        //          }]
-        //      }
-        // },
+              imagemin: { // Task
+                  static: { // Target
+                      options: { // Target options
+                          optimizationLevel: 3,
+                          svgoPlugins: [{
+                              removeViewBox: false
+                          }],
+                          use: [mozjpeg()]
+                      },
+                      files: { // Dictionary of files
+                          'dist/pizzeria.jpg': 'views/images/pizzeria.jpg',
+
+                      }
+                  },
+             dynamic: { // Another target
+                 files: [{
+                     expand: true, // Enable dynamic expansion
+                     cwd: 'src/', // Src matches are relative to this path
+                     src: ['**/*.{png,jpg,gif}'], // Actual patterns to match
+                     dest: 'dist/' // Destination path prefix
+                 }]
+             }
+        },
 
         // Uglify configuration
         uglify: {
@@ -85,8 +81,6 @@ module.exports = function(grunt) {
         },
 
 
-
-
     }); //end config
 
     // Loading Tasks
@@ -95,7 +89,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-
 
     grunt.registerTask('default', ['inlinecss', 'cssmin', 'uglify', 'htmlmin']);
 };
