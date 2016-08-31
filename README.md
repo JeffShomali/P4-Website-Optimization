@@ -43,9 +43,13 @@ Minify CSS and placed into page head. Except for print css which now uses media 
 Change JS loading to async
 By far the most important optimisation for FPS in Chrome was a CSS hack by David Walsh (http://davidwalsh.name/translate3d). It forced each pizza to be in it's own composite layer and this saw a huge speed increase. When I first tried this it didn't work as I applied the translateX inline and therefore was appearing after page load. It turned out before Chrome rendered the DOM CSSOM it needed to know that this were 'transform' layers.
 - Also using GruntJs task  Minify images (https://github.com/gruntjs/grunt-contrib-imagemin) is a great tools for imgae compressing.
+
 ###### Minify HTML (https://github.com/gruntjs/grunt-contrib-htmlmin)
+
 ###### Minify CSS  (https://github.com/gruntjs/grunt-contrib-cssmin)
+
 ###### Inline CSS (https://github.com/jgallen23/grunt-inline-css)
+
 ###### Minify JavaScript files with UglifyJS (https://www.npmjs.com/package/grunt-contrib-uglify)
 
 ## Solution - Pizza FPS
@@ -53,6 +57,12 @@ By far the most important optimisation for FPS in Chrome was a CSS hack by David
 - Modfied the `changePizzaSizes`  function to select randomPizzaContainer using `getElementsByClassName()` rather than `querySelectorAll()` and moved the computation of the dx and `newwidth` variables outside of the for loop to cash length loop on each pass through that loop.
 - Modified the `updatePositions` function to select the mover elements by class name.
 - Changed the querySelector call for selecting movingPizzas1 element to getElementById, saved it to a local variable called `movingPizzas`, moved it outside of the for loop, and referenced the movingPizzas variable inside the loop.
+
+
+
+
+## Result
+![result](https://github.com/JeffShomali/P4-Website-Optimization/blob/master/img/Result.jpeg?raw=true "Logo Title Text 1")
 
 
 ## Resources
