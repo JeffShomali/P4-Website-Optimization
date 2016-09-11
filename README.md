@@ -2,10 +2,13 @@
 
 This is Website Performance Optimization course project at Udacity: https://www.udacity.com/course/ud884
 
+### Prerequisites Courses to Finish this Project
+1. Browser Rendering Optimization (UD860)
+     + Course built by [Google](https://www.udacity.com/course/browser-rendering-optimization--ud860)
+2. Website Performance Optimization (UD884)
+     + Course built by [Google](https://www.udacity.com/course/website-performance-optimization--ud884)
 
-
-
-## Download ad Run this project
+### Download ad Run this project
 
 
 ##### 1) download
